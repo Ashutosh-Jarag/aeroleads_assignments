@@ -1,0 +1,6 @@
+selenium 
+pandas
+python-dotenv
+fake-useragent==1.5.1
+fake-useragent
+fake_useragent_reloaded
