@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Blog Generator (LangChain + LangGraph)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f7f8fa; }
+    textarea { width: 400px; height: 150px; border-radius: 8px; padding: 10px; }
+    button { background: #007BFF; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    article { background: white; padding: 20px; border-radius: 8px; margin-top: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <h1>🧠 AI Blog Generator</h1>
+  <form method="POST">
+    <label>Enter Blog Titles (one per line):</label><br>
+    <textarea name="titles" placeholder="e.g. Introduction to LangChain&#10;How to Use LangGraph for AI Pipelines"></textarea><br><br>
+    <button type="submit">Generate Blogs</button>
+  </form>
+
+  {% if articles %}
+  <hr>
+  <h2>Generated Blogs</h2>
+  {% for article in articles %}
+  <article>
+    <h3>{{ article.topic }}</h3>
+    <div style="white-space: pre-wrap;">{{ article.content }}</div>
+  </article>
+  {% endfor %}
+  {% endif %}
+</body>
+</html>
