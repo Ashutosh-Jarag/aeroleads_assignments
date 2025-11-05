@@ -17,31 +17,47 @@ blog_generator/
 Before you begin, ensure you have the following installed on your system:
 
 - Python 3.8 or higher
-- Git
+- Git (for Git method only)
 
-## ⚙️ Setup and Installation
+---
 
-Follow these step-by-step instructions to set up the project on your local machine.
+# 📥 Installation Guide
 
-### 1. Clone the Repository
+Choose one of the two methods below to get started with the project.
 
-Open your terminal and clone the project:
+---
+
+## Method 1: Download Normally (Direct Download)
+
+### ✅ Step 1: Get Your API Key First
+
+Before downloading, obtain your Gemini API key:
+
+1. Visit [Google AI Studio](https://aistudio.google.com)
+2. Sign in with your Google account
+3. Click **"Create API key"** and follow the prompts
+4. Copy and securely store the generated key
+
+### ⬇️ Step 2: Download the Repository
+
+1. Visit the [GitHub repository](https://github.com/Ashutosh-Jarag/aeroleads_assignments)
+2. Click the green **"Code"** button at the top right
+3. Select **"Download ZIP"** from the dropdown menu
+4. Save and extract the ZIP file to your desired location
+
+### 📁 Step 3: Navigate to the Project Directory
+
+Extract the downloaded ZIP file and open your terminal in the `blog_generator` folder:
 
 ```bash
-git clone https://github.com/Ashutosh-Jarag/aeroleads_assignments.git
+cd path/to/aeroleads_assignments/blog_generator
 ```
 
-### 2. Navigate to the Project Directory
+Replace `path/to/` with the actual path where you extracted the files.
 
-```bash
-cd aeroleads_assignments/blog_generator
-```
+### 🔧 Step 4: Create a Virtual Environment
 
-### 3. Create a Virtual Environment (Recommended)
-
-Creating a virtual environment isolates your project dependencies and prevents conflicts with other Python projects.
-
-Create the environment:
+Creating a virtual environment isolates your project dependencies:
 
 ```bash
 python -m venv venv
@@ -67,59 +83,146 @@ venv\Scripts\activate.bat
 venv\Scripts\Activate.ps1
 ```
 
-You should see `(venv)` appear in your terminal prompt, indicating the environment is active.
+You should see `(venv)` in your terminal prompt.
 
-### 4. Install Dependencies
-
-Install all required packages from the requirements file:
+### 📦 Step 5: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🔑 Gemini API Key Configuration
-
-This application requires a Gemini API Key to function.
-
-### Getting Your API Key
-
-1. Visit [Google AI Studio](https://aistudio.google.com)
-2. Sign in with your Google account
-3. Click **"Create API key"** and follow the prompts
-4. Copy the generated key immediately and store it securely
-
-### Setting Up the Environment Variable
+### 🔐 Step 6: Configure Your API Key
 
 1. Create a `.env` file in the `blog_generator` directory (at the same level as `requirements.txt` and `generator.py`)
-2. Add the following line to the `.env` file, replacing the placeholder with your actual API key:
+2. Add the following line, replacing with your actual API key:
 
 ```
 GEMINI_API_KEY=your_actual_api_key_here
 ```
 
-The application uses `python-dotenv` to automatically load this key when the script runs.
+Save the file.
 
-## ▶️ Running the Application
-
-With your virtual environment activated and API key configured, run the blog generator:
+### ▶️ Step 7: Run the Application
 
 ```bash
 python generator.py
 ```
 
-### What the Script Does
+The script will:
+1. Read your input (blog topic, keywords, etc.)
+2. Send a request to the Google Gemini API
+3. Display the generated blog post or save it to a file
 
-1. **Reads Input** – Prompts you for a blog topic, keywords, or other parameters
-2. **Calls Gemini** – Sends a request to the Google Gemini API with your input
-3. **Generates Output** – Displays the generated blog post in the terminal or saves it to a file
+### ⏹️ Step 8: Deactivate Virtual Environment
 
-### Deactivating the Virtual Environment
-
-When you're finished, deactivate the virtual environment:
+When finished:
 
 ```bash
 deactivate
 ```
+
+---
+
+## Method 2: Using Git (Recommended for Developers)
+
+### ✅ Step 1: Get Your API Key First
+
+Before cloning, obtain your Gemini API key:
+
+1. Visit [Google AI Studio](https://aistudio.google.com)
+2. Sign in with your Google account
+3. Click **"Create API key"** and follow the prompts
+4. Copy and securely store the generated key
+
+### 📥 Step 2: Clone the Repository
+
+Open your terminal and run:
+
+```bash
+git clone https://github.com/Ashutosh-Jarag/aeroleads_assignments.git
+```
+
+This creates a folder named `aeroleads_assignments` with all project files.
+
+### 📁 Step 3: Navigate to the Project Directory
+
+```bash
+cd aeroleads_assignments/blog_generator
+```
+
+### 🔧 Step 4: Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate the environment:
+
+**On macOS/Linux:**
+
+```bash
+source venv/bin/activate
+```
+
+**On Windows (Command Prompt):**
+
+```bash
+venv\Scripts\activate.bat
+```
+
+**On Windows (PowerShell):**
+
+```bash
+venv\Scripts\Activate.ps1
+```
+
+You should see `(venv)` in your terminal prompt.
+
+### 📦 Step 5: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 🔐 Step 6: Configure Your API Key
+
+1. Create a `.env` file in the `blog_generator` directory (at the same level as `requirements.txt` and `generator.py`)
+2. Add the following line, replacing with your actual API key:
+
+```
+GEMINI_API_KEY=your_actual_api_key_here
+```
+
+Save the file.
+
+### ▶️ Step 7: Run the Application
+
+```bash
+python generator.py
+```
+
+The script will:
+1. Read your input (blog topic, keywords, etc.)
+2. Send a request to the Google Gemini API
+3. Display the generated blog post or save it to a file
+
+### 🔄 Step 8: (Optional) Keep Your Repository Updated
+
+To pull the latest changes from the repository:
+
+```bash
+git pull origin main
+```
+
+### ⏹️ Step 9: Deactivate Virtual Environment
+
+When finished:
+
+```bash
+deactivate
+```
+
+---
 
 ## 📋 Requirements
 
@@ -141,11 +244,29 @@ The project uses the following Python packages (specified in `requirements.txt`)
 **Issue: "Permission denied" on macOS/Linux**
 - Try running `chmod +x generator.py` to make the script executable
 
+**Issue: Git command not found**
+- Install Git from [git-scm.com](https://git-scm.com) if using the Git method
+
+**Issue: Python command not found**
+- Ensure Python 3.8+ is installed: [python.org](https://www.python.org/downloads/)
+
+## 📊 Comparison: Download vs Git
+
+| Feature | Download (ZIP) | Git Clone |
+|---------|---|---|
+| **Ease of Use** | Simple, no Git knowledge needed | Requires Git familiarity |
+| **Updates** | Manual re-download required | One command (`git pull`) |
+| **Version Control** | No history tracking | Full commit history available |
+| **Collaboration** | Not ideal for contributions | Perfect for contributing changes |
+| **File Size** | Slightly smaller (no `.git` folder) | Includes `.git` metadata |
+
 ## 📚 Additional Resources
 
 - [Google Gemini API Documentation](https://ai.google.dev/docs)
 - [Python Virtual Environments Guide](https://docs.python.org/3/tutorial/venv.html)
 - [python-dotenv Documentation](https://python-dotenv.readthedocs.io/)
+- [Git Documentation](https://git-scm.com/doc)
+- [Python Installation Guide](https://www.python.org/downloads/)
 
 ## 📄 License
 
