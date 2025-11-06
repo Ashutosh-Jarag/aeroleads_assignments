@@ -6,18 +6,14 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph, END
 
 
-# Load environment
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-# Configure Flask
 app = Flask(__name__)
 os.makedirs("blog", exist_ok=True)
 
-# Configure LLM
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=GOOGLE_API_KEY)
 
-# Prompt Template
 prompt = PromptTemplate(
     input_variables=["topic"],
     template=(
@@ -26,7 +22,6 @@ prompt = PromptTemplate(
     )
 )
 
-# Define generation logic for LangGraph
 def generate_article(state):
     topic = state["topic"]
     final_prompt = prompt.format(topic=topic)
@@ -34,14 +29,12 @@ def generate_article(state):
     content = response.content
     return {"topic": topic, "content": content}
 
-# LangGraph setup
 builder = StateGraph(dict)
 builder.add_node("generate", generate_article)
 builder.set_entry_point("generate")
 builder.add_edge("generate", END)
 graph = builder.compile()
 
-# Flask routes
 @app.route("/", methods=["GET", "POST"])
 def home():
     articles = []
