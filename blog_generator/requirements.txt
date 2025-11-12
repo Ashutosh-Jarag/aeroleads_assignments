@@ -1,6 +1,21 @@
-flask 
-langchain 
-langgraph 
-google-generativeai 
-langchain-google-genai 
-python-dotenv
+
+
+# 🌐 Web Framework
+flask==3.1.2
+python-dotenv==1.0.1
+
+# 🧠 LangChain Ecosystem
+langchain==1.0.5
+langchain-core==1.0.4
+langgraph==1.0.3
+langchain-google-genai==3.0.2
+
+# 🤖 Google Gemini SDK (New API)
+google-genai==1.0.0
+
+# ⚙️ Utilities
+requests==2.32.3
+jinja2==3.1.4
+werkzeug==3.1.3
+itsdangerous==2.2.0
+click==8.1.7
